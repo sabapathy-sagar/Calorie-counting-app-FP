@@ -1,6 +1,6 @@
 import hh from "hyperscript-helpers";
 import { h } from "virtual-dom";
-import "tachyons/css/tachyons.min.css";
+import { MSGS } from "./Update";
 
 //the pre function creates the pre tag which is used for
 //preformatted text
@@ -45,7 +45,8 @@ const formView = (dispatch, model) => {
   } else {
     return button(
       {
-        className: "f3 pv2 ph3 bg-blue white bn mr2 dim"
+        className: "f3 pv2 ph3 bg-blue white bn mr2 dim",
+        onclick: () => dispatch(MSGS.SHOW_FORM)
       },
       "Add Meal"
     );
