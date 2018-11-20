@@ -1,6 +1,6 @@
 import hh from "hyperscript-helpers";
 import { h } from "virtual-dom";
-import { MSGS } from "./Update";
+import { showFormMsg } from "./Update";
 
 //the pre function creates the pre tag which is used for
 //preformatted text
@@ -28,7 +28,8 @@ const buttonSet = dispatch =>
     button(
       {
         className: "f3 pv2 ph3 bg-light-gray bn dim",
-        type: "button"
+        type: "button",
+        onclick: () => dispatch(showFormMsg(false))
       },
       "Cancel"
     )
@@ -46,7 +47,7 @@ const formView = (dispatch, model) => {
     return button(
       {
         className: "f3 pv2 ph3 bg-blue white bn mr2 dim",
-        onclick: () => dispatch(MSGS.SHOW_FORM)
+        onclick: () => dispatch(showFormMsg(true))
       },
       "Add Meal"
     );
